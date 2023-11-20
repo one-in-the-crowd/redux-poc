@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.reduxpoc.screens.home.HomeScreen
 import com.example.reduxpoc.screens.strlen.StringLengthCounter
 import com.example.reduxpoc.ui.theme.ReduxPOCTheme
+import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +29,10 @@ class MainActivity : ComponentActivity() {
                         navController = navController, startDestination = Destination.Home.route
                     ) {
                         composable(route = Destination.Home.route) {
-                            HomeScreen(navController)
+                            HomeScreen(
+                                viewModel = koinViewModel(),
+                                navController = navController
+                            )
                         }
                         composable(route = Destination.StringLengthCounter.route) {
                             StringLengthCounter()

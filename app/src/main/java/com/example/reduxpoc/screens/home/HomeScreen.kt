@@ -15,6 +15,7 @@ import com.example.reduxpoc.Destination
 
 @Composable
 fun HomeScreen(
+    viewModel: HomeScreenViewModel,
     navController: NavHostController
 ) {
     Column(
@@ -38,5 +39,5 @@ fun HomeScreen(
 @Preview
 @Composable
 private fun HomeScreenPreview() {
-    HomeScreen(rememberNavController())
+    HomeScreen(HomeScreenViewModel(), rememberNavController())
 }
