@@ -12,10 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.reduxpoc.screens.home.HomeUiState
 import com.example.reduxpoc.screens.home.HomeScreen
 import com.example.reduxpoc.screens.home.HomeScreenViewModel
+import com.example.reduxpoc.screens.home.feature.HomeUiState
 import com.example.reduxpoc.screens.strlen.StrLenCounterScreen
+import com.example.reduxpoc.screens.strlen.StrLenCounterViewModel
+import com.example.reduxpoc.screens.strlen.feature.StrLenCounterAction
+import com.example.reduxpoc.screens.strlen.feature.StrLenCounterUiState
 import com.example.reduxpoc.ui.theme.ReduxPOCTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -33,20 +36,34 @@ class MainActivity : ComponentActivity() {
                         navController = navController, startDestination = Destination.Home.route
                     ) {
                         composable(route = Destination.Home.route) {
-                            val homeVm: HomeScreenViewModel = koinViewModel()
+                            val screenViewModel: HomeScreenViewModel = koinViewModel()
 
                             // TODO use collectAsStateWithLifecycle()
-                            val state: HomeUiState by homeVm.uiState.collectAsState(initial = HomeUiState())
+                            val state: HomeUiState by screenViewModel.uiState.collectAsState(initial = HomeUiState())
                             HomeScreen(
                                 state = state,
                                 navController = navController,
                                 onNavigationClicked = { action ->
-                                    homeVm.dispatch(action)
+                                    screenViewModel.dispatch(action)
                                 }
                             )
                         }
+
                         composable(route = Destination.StrLenCounter.route) {
-                            StrLenCounterScreen()
+                            val screenViewModel: StrLenCounterViewModel = koinViewModel()
+
+                            // TODO use collectAsStateWithLifecycle()
+                            val state: StrLenCounterUiState by screenViewModel.uiState.collectAsState(
+                                initial = StrLenCounterUiState.INITIAL
+                            )
+                            StrLenCounterScreen(
+                                state = state,
+                                onValueUpdated = { newValue ->
+                                    screenViewModel.dispatch(
+                                        StrLenCounterAction.UpdateInput(newValue)
+                                    )
+                                }
+                            )
                         }
                     }
                 }

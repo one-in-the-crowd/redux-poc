@@ -1,4 +1,4 @@
-package com.example.reduxpoc.screens.home
+package com.example.reduxpoc.screens.home.feature
 
 import com.example.reduxpoc.arch.Action
 import com.example.reduxpoc.arch.Actor
@@ -19,7 +19,7 @@ class HomeFeature(
 ) : Feature<HomeUiState, HomeAction>() {
 
     private val _uiState: MutableStateFlow<HomeUiState> = MutableStateFlow(HomeUiState())
-    override val uiState: Flow<UiState> = _uiState
+    override val uiState: Flow<HomeUiState> = _uiState
     override fun dispatch(action: HomeAction) {
         // TODO this should be a flow
         coroutineScope.launch {
