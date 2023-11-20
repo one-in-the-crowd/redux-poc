@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -38,8 +38,9 @@ class MainActivity : ComponentActivity() {
                         composable(route = Destination.Home.route) {
                             val screenViewModel: HomeScreenViewModel = koinViewModel()
 
-                            // TODO use collectAsStateWithLifecycle()
-                            val state: HomeUiState by screenViewModel.uiState.collectAsState(initial = HomeUiState())
+                            val state: HomeUiState by screenViewModel.uiState.collectAsStateWithLifecycle(
+                                initialValue = HomeUiState()
+                            )
                             HomeScreen(
                                 state = state,
                                 navController = navController,
@@ -52,9 +53,8 @@ class MainActivity : ComponentActivity() {
                         composable(route = Destination.StrLenCounter.route) {
                             val screenViewModel: StrLenCounterViewModel = koinViewModel()
 
-                            // TODO use collectAsStateWithLifecycle()
-                            val state: StrLenCounterUiState by screenViewModel.uiState.collectAsState(
-                                initial = StrLenCounterUiState.INITIAL
+                            val state: StrLenCounterUiState by screenViewModel.uiState.collectAsStateWithLifecycle(
+                                initialValue = StrLenCounterUiState.INITIAL
                             )
                             StrLenCounterScreen(
                                 state = state,
