@@ -15,8 +15,9 @@ import com.example.reduxpoc.Destination
 
 @Composable
 fun HomeScreen(
-    viewModel: HomeScreenViewModel,
-    navController: NavHostController
+    state: HomeUiState,
+    navController: NavHostController,
+    onNavigationClicked: (HomeAction) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -28,7 +29,9 @@ fun HomeScreen(
             modifier = Modifier.padding(top = 16.dp)
         ) {
             Button(onClick = {
-                navController.navigate(Destination.StringLengthCounter.route)
+                onNavigationClicked(
+                    HomeAction.NavigateStrLen { navController.navigate(Destination.StrLenCounter.route) }
+                )
             }) {
                 Text(text = "String length checker")
             }
@@ -39,5 +42,5 @@ fun HomeScreen(
 @Preview
 @Composable
 private fun HomeScreenPreview() {
-    HomeScreen(HomeScreenViewModel(), rememberNavController())
+    HomeScreen(HomeUiState(), rememberNavController()) { _ -> }
 }

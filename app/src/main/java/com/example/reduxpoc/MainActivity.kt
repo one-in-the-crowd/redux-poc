@@ -6,12 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.reduxpoc.screens.home.HomeUiState
 import com.example.reduxpoc.screens.home.HomeScreen
-import com.example.reduxpoc.screens.strlen.StringLengthCounter
+import com.example.reduxpoc.screens.home.HomeScreenViewModel
+import com.example.reduxpoc.screens.strlen.StrLenCounterScreen
 import com.example.reduxpoc.ui.theme.ReduxPOCTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -29,13 +33,20 @@ class MainActivity : ComponentActivity() {
                         navController = navController, startDestination = Destination.Home.route
                     ) {
                         composable(route = Destination.Home.route) {
+                            val homeVm: HomeScreenViewModel = koinViewModel()
+
+                            // TODO use collectAsStateWithLifecycle()
+                            val state: HomeUiState by homeVm.uiState.collectAsState(initial = HomeUiState())
                             HomeScreen(
-                                viewModel = koinViewModel(),
-                                navController = navController
+                                state = state,
+                                navController = navController,
+                                onNavigationClicked = { action ->
+                                    homeVm.dispatch(action)
+                                }
                             )
                         }
-                        composable(route = Destination.StringLengthCounter.route) {
-                            StringLengthCounter()
+                        composable(route = Destination.StrLenCounter.route) {
+                            StrLenCounterScreen()
                         }
                     }
                 }

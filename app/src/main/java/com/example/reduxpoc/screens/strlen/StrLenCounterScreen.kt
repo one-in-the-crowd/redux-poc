@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun StringLengthCounter() {
+fun StrLenCounterScreen() {
     var stringLength by remember { mutableIntStateOf(0) }
     var textFieldValue by remember { mutableStateOf("") }
     Column(
@@ -36,6 +36,6 @@ fun StringLengthCounter() {
 
 @Preview
 @Composable
-private fun StringLengthCounterPreview() {
-    StringLengthCounter()
+private fun StrLenCounterScreenPreview() {
+    StrLenCounterScreen()
 }
