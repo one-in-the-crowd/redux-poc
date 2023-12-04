@@ -1,5 +1,7 @@
 package com.example.reduxpoc.arch
 
+import kotlinx.coroutines.flow.Flow
+
 interface Actor<A : Action, E : Effect> {
-    suspend fun handle(action: A): E?
+    fun handle(action: A): Flow<E>
 }

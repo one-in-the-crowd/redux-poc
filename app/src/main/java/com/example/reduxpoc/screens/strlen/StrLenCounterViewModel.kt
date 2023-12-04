@@ -8,6 +8,7 @@ import com.example.reduxpoc.screens.strlen.feature.StrLenCounterFeature
 import com.example.reduxpoc.screens.strlen.feature.StrLenCounterReducer
 import com.example.reduxpoc.screens.strlen.feature.StrLenCounterUiState
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
 class StrLenCounterViewModel(
     actor: StrLenCounterActor,

@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(
                         navController = navController,
-                        startDestination = Destination.ActionsDemo.route
+                        startDestination = Destination.Home.route
                     ) {
                         composable(route = Destination.Home.route) {
                             val screenViewModel: HomeScreenViewModel = koinViewModel()

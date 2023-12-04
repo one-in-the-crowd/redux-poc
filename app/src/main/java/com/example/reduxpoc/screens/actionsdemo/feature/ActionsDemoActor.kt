@@ -9,16 +9,7 @@ import java.util.concurrent.TimeUnit
 
 class ActionsDemoActor : Actor<ActionsDemoAction, ActionsDemoEffect> {
 
-    override suspend fun handle(action: ActionsDemoAction): ActionsDemoEffect? {
-        // TODO: use handleF
-        return null
-//        return when (action) {
-//            is ActionsDemoAction.EmitMessage -> action.handle()
-//            else -> null
-//        }
-    }
-
-    fun handleF(action: ActionsDemoAction): Flow<ActionsDemoEffect> {
+    override fun handle(action: ActionsDemoAction): Flow<ActionsDemoEffect> {
         return when (action) {
             is ActionsDemoAction.EmitMessage -> action.handle()
             else -> emptyFlow()
