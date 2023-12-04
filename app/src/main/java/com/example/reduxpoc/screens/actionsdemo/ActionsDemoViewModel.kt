@@ -1,9 +1,13 @@
-package com.example.reduxpoc.screens.actionsdemo.feature
+package com.example.reduxpoc.screens.actionsdemo
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoAction
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoActor
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoFeature
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoReducer
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoUiState
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
 
 class ActionsDemoViewModel(
     actor: ActionsDemoActor,

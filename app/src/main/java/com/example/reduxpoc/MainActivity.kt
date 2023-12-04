@@ -14,7 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.reduxpoc.screens.actionsdemo.ActionsDemoScreen
 import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoUiState
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoViewModel
+import com.example.reduxpoc.screens.actionsdemo.ActionsDemoViewModel
 import com.example.reduxpoc.screens.home.HomeScreen
 import com.example.reduxpoc.screens.home.HomeScreenViewModel
 import com.example.reduxpoc.screens.home.feature.HomeUiState
