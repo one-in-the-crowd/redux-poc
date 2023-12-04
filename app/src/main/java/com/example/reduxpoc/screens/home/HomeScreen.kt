@@ -1,5 +1,6 @@
 package com.example.reduxpoc.screens.home
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -28,7 +29,8 @@ fun HomeScreen(
     ) {
         Text(text = "Home screen")
         Column(
-            modifier = Modifier.padding(top = 16.dp)
+            modifier = Modifier.padding(top = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             Button(onClick = {
                 onNavigationClicked(
@@ -36,6 +38,14 @@ fun HomeScreen(
                 )
             }) {
                 Text(text = "String length checker")
+            }
+
+            Button(onClick = {
+                onNavigationClicked(
+                    HomeAction.NavigateStrLen { navController.navigate(Destination.ActionsDemo.route) }
+                )
+            }) {
+                Text(text = "Actions demo")
             }
         }
     }

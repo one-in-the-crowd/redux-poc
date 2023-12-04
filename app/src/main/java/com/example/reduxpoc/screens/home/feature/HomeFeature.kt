@@ -36,7 +36,7 @@ class HomeFeature(
 class HomeUiState : UiState
 
 class HomeActor : Actor<HomeAction, HomeEffect> {
-    override fun handle(action: HomeAction): HomeEffect? {
+    override suspend fun handle(action: HomeAction): HomeEffect? {
         when (action) {
             is HomeAction.NavigateStrLen -> action.lambda.invoke()
         }

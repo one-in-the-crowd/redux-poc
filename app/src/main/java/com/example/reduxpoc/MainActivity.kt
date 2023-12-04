@@ -12,6 +12,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.reduxpoc.screens.actionsdemo.ActionsDemoScreen
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoUiState
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoViewModel
 import com.example.reduxpoc.screens.home.HomeScreen
 import com.example.reduxpoc.screens.home.HomeScreenViewModel
 import com.example.reduxpoc.screens.home.feature.HomeUiState
@@ -33,7 +36,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     NavHost(
-                        navController = navController, startDestination = Destination.Home.route
+                        navController = navController,
+                        startDestination = Destination.ActionsDemo.route
                     ) {
                         composable(route = Destination.Home.route) {
                             val screenViewModel: HomeScreenViewModel = koinViewModel()
@@ -62,6 +66,20 @@ class MainActivity : ComponentActivity() {
                                     screenViewModel.dispatch(
                                         StrLenCounterAction.UpdateInput(newValue)
                                     )
+                                }
+                            )
+                        }
+
+                        composable(route = Destination.ActionsDemo.route) {
+                            val screenViewModel: ActionsDemoViewModel = koinViewModel()
+
+                            val state: ActionsDemoUiState by screenViewModel.uiState.collectAsStateWithLifecycle(
+                                initialValue = ActionsDemoUiState()
+                            )
+                            ActionsDemoScreen(
+                                state = state,
+                                onStart = { actionsToDispatch ->
+                                    actionsToDispatch.forEach(screenViewModel::dispatch)
                                 }
                             )
                         }

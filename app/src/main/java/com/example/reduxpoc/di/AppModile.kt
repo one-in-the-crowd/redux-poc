@@ -1,5 +1,8 @@
 package com.example.reduxpoc.di
 
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoActor
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoReducer
+import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoViewModel
 import com.example.reduxpoc.screens.home.HomeScreenViewModel
 import com.example.reduxpoc.screens.home.feature.HomeActor
 import com.example.reduxpoc.screens.home.feature.HomeReducer
@@ -24,5 +27,13 @@ val appModule = module {
     }
     factory {
         StrLenCounterReducer()
+    }
+
+    viewModelOf(::ActionsDemoViewModel)
+    factory {
+        ActionsDemoActor()
+    }
+    factory {
+        ActionsDemoReducer()
     }
 }
