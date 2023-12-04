@@ -1,8 +1,11 @@
 package com.example.reduxpoc.screens.strlen
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -16,7 +19,8 @@ import com.example.reduxpoc.screens.strlen.feature.StrLenCounterUiState
 @Composable
 fun StrLenCounterScreen(
     state: StrLenCounterUiState,
-    onValueUpdated: (String) -> Unit
+    onValueUpdated: (String) -> Unit,
+    onClearInput: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -30,6 +34,12 @@ fun StrLenCounterScreen(
                 onValueUpdated(newValue)
             })
         Text(text = "String length: ${state.valueLength}")
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(onClick = { onClearInput() }) {
+            Text(text = "Clear input")
+        }
     }
 }
 
@@ -38,6 +48,7 @@ fun StrLenCounterScreen(
 private fun StrLenCounterScreenPreview() {
     StrLenCounterScreen(
         state = StrLenCounterUiState(strFieldValue = "Foo bar", valueLength = 9999),
-        onValueUpdated = { _ -> }
+        onValueUpdated = { _ -> },
+        onClearInput = {}
     )
 }

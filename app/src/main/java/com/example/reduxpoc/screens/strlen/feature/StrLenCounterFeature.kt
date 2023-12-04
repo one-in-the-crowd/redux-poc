@@ -29,6 +29,7 @@ data class StrLenCounterUiState(
 
 sealed class StrLenCounterAction : Action {
     data class UpdateInput(val strFieldValue: String) : StrLenCounterAction()
+    object ClearInput : StrLenCounterAction()
 }
 
 sealed class StrLenCounterEffect : Effect {

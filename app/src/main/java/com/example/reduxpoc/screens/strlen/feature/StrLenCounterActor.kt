@@ -13,6 +13,13 @@ class StrLenCounterActor : Actor<StrLenCounterAction, StrLenCounterEffect> {
                     length = action.strFieldValue.length
                 )
             )
+
+            is StrLenCounterAction.ClearInput -> flowOf(
+                StrLenCounterEffect.ValueUpdated(
+                    updatedValue = "",
+                    length = 0
+                )
+            )
         }
     }
 }

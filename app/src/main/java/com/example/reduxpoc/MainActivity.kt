@@ -66,6 +66,9 @@ class MainActivity : ComponentActivity() {
                                     screenViewModel.dispatch(
                                         StrLenCounterAction.UpdateInput(newValue)
                                     )
+                                },
+                                onClearInput = {
+                                    screenViewModel.dispatch(StrLenCounterAction.ClearInput)
                                 }
                             )
                         }
