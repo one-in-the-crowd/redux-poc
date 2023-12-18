@@ -2,11 +2,11 @@ package com.example.reduxpoc.screens.actionsdemo
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoAction
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoActor
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoFeature
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoReducer
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoUiState
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoAction
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoActor
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoStore
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoReducer
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoUiState
 import kotlinx.coroutines.flow.Flow
 
 class ActionsDemoViewModel(
@@ -14,8 +14,8 @@ class ActionsDemoViewModel(
     reducer: ActionsDemoReducer
 ) : ViewModel() {
 
-    private val feature: ActionsDemoFeature = ActionsDemoFeature(viewModelScope, actor, reducer)
+    private val store: ActionsDemoStore = ActionsDemoStore(viewModelScope, actor, reducer)
 
-    val uiState: Flow<ActionsDemoUiState> = feature.uiState
-    fun dispatch(action: ActionsDemoAction) = feature.dispatch(action)
+    val uiState: Flow<ActionsDemoUiState> = store.uiState
+    fun dispatch(action: ActionsDemoAction) = store.dispatch(action)
 }

@@ -1,4 +1,4 @@
-package com.example.reduxpoc.screens.strlen.feature
+package com.example.reduxpoc.screens.strlen.store
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterUiState
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterUiState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

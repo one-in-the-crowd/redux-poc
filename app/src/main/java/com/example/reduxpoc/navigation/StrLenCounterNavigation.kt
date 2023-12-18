@@ -6,8 +6,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.reduxpoc.screens.strlen.StrLenCounterScreen
 import com.example.reduxpoc.screens.strlen.StrLenCounterViewModel
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterAction
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterUiState
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterAction
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterUiState
 import org.koin.androidx.compose.koinViewModel
 
 fun NavGraphBuilder.strLenCounter() {

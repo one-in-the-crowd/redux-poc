@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.launch
 
-abstract class Feature<S : UiState, A : Action, E : Effect>(
+abstract class Store<S : UiState, A : Action, E : Effect>(
     private val coroutineScope: CoroutineScope,
     actor: Actor<A, E>,
     reducer: Reducer<S, E>

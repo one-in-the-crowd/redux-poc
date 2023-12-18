@@ -1,4 +1,4 @@
-package com.example.reduxpoc.screens.strlen.feature
+package com.example.reduxpoc.screens.strlen.store
 
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest

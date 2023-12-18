@@ -1,15 +1,15 @@
-package com.example.reduxpoc.screens.actionsdemo.feature
+package com.example.reduxpoc.screens.actionsdemo.store
 
 import com.example.reduxpoc.arch.Action
 import com.example.reduxpoc.arch.Effect
-import com.example.reduxpoc.arch.Feature
+import com.example.reduxpoc.arch.Store
 import com.example.reduxpoc.arch.UiState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 
-class ActionsDemoFeature(
+class ActionsDemoStore(
     coroutineScope: CoroutineScope, actor: ActionsDemoActor, reducer: ActionsDemoReducer
-) : Feature<ActionsDemoUiState, ActionsDemoAction, ActionsDemoEffect>(
+) : Store<ActionsDemoUiState, ActionsDemoAction, ActionsDemoEffect>(
     coroutineScope, actor, reducer
 ) {
     override val stateFlowInternal = MutableStateFlow(ActionsDemoUiState.INITIAL_STATE)

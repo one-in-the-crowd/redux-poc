@@ -1,4 +1,4 @@
-package com.example.reduxpoc.screens.strlen.feature
+package com.example.reduxpoc.screens.strlen.store
 
 import com.example.reduxpoc.arch.Actor
 import kotlinx.coroutines.flow.Flow

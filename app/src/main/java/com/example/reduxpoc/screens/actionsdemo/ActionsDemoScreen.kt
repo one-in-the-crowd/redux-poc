@@ -8,8 +8,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoAction
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoUiState
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoAction
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoUiState
 
 @Composable
 fun ActionsDemoScreen(

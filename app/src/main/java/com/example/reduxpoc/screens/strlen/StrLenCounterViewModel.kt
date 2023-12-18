@@ -2,20 +2,19 @@ package com.example.reduxpoc.screens.strlen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterAction
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterActor
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterFeature
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterReducer
-import com.example.reduxpoc.screens.strlen.feature.StrLenCounterUiState
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterAction
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterActor
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterStore
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterReducer
+import com.example.reduxpoc.screens.strlen.store.StrLenCounterUiState
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
 
 class StrLenCounterViewModel(
     actor: StrLenCounterActor,
     reducer: StrLenCounterReducer
 ) : ViewModel() {
-    private val feature: StrLenCounterFeature = StrLenCounterFeature(viewModelScope, actor, reducer)
+    private val store: StrLenCounterStore = StrLenCounterStore(viewModelScope, actor, reducer)
 
-    val uiState: Flow<StrLenCounterUiState> = feature.uiState
-    fun dispatch(action: StrLenCounterAction) = feature.dispatch(action)
+    val uiState: Flow<StrLenCounterUiState> = store.uiState
+    fun dispatch(action: StrLenCounterAction) = store.dispatch(action)
 }

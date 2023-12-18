@@ -6,7 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.example.reduxpoc.screens.actionsdemo.ActionsDemoScreen
 import com.example.reduxpoc.screens.actionsdemo.ActionsDemoViewModel
-import com.example.reduxpoc.screens.actionsdemo.feature.ActionsDemoUiState
+import com.example.reduxpoc.screens.actionsdemo.store.ActionsDemoUiState
 import org.koin.androidx.compose.koinViewModel
 
 fun NavGraphBuilder.actionsDemoScreen() {

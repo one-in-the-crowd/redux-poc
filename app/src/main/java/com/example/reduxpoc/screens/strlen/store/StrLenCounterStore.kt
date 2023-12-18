@@ -1,17 +1,17 @@
-package com.example.reduxpoc.screens.strlen.feature
+package com.example.reduxpoc.screens.strlen.store
 
 import com.example.reduxpoc.arch.Action
 import com.example.reduxpoc.arch.Effect
-import com.example.reduxpoc.arch.Feature
+import com.example.reduxpoc.arch.Store
 import com.example.reduxpoc.arch.UiState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 
-class StrLenCounterFeature(
+class StrLenCounterStore(
     coroutineScope: CoroutineScope,
     actor: StrLenCounterActor,
     reducer: StrLenCounterReducer,
-) : Feature<StrLenCounterUiState, StrLenCounterAction, StrLenCounterEffect>(
+) : Store<StrLenCounterUiState, StrLenCounterAction, StrLenCounterEffect>(
     coroutineScope, actor, reducer
 ) {
 

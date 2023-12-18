@@ -1,4 +1,4 @@
-package com.example.reduxpoc.screens.actionsdemo.feature
+package com.example.reduxpoc.screens.actionsdemo.store
 
 import com.example.reduxpoc.arch.Effect
 import com.example.reduxpoc.arch.Reducer

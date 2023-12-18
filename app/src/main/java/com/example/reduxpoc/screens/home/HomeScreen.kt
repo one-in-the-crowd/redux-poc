@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.reduxpoc.navigation.Destination
-import com.example.reduxpoc.screens.home.feature.HomeAction
-import com.example.reduxpoc.screens.home.feature.HomeUiState
+import com.example.reduxpoc.screens.home.store.HomeAction
+import com.example.reduxpoc.screens.home.store.HomeUiState
 
 @Composable
 fun HomeScreen(

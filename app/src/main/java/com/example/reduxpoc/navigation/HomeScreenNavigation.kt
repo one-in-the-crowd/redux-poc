@@ -7,7 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import com.example.reduxpoc.screens.home.HomeScreen
 import com.example.reduxpoc.screens.home.HomeScreenViewModel
-import com.example.reduxpoc.screens.home.feature.HomeUiState
+import com.example.reduxpoc.screens.home.store.HomeUiState
 import org.koin.androidx.compose.koinViewModel
 
 fun NavGraphBuilder.homeScreen(
